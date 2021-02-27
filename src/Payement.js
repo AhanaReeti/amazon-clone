@@ -27,6 +27,7 @@ function Payement(){
     const [clientSecret, setClientSecret] = useState(true);
 
     // useEffect runs when payment is loaded and any dependency changes
+    // just checking git access
     useEffect(() => {
         // generate the stripe secret to which allows us to charge a customer
         const getClientSecret = async () => {
