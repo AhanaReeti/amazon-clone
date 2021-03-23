@@ -1,11 +1,9 @@
 import React from 'react';
 
-import './Checkout.css';
+import '../../css/checkout/Checkout.css';
 import CheckoutProduct from './CheckoutProduct';
-import { useStateValue } from './StateProvider';
-
-
-import Subtotal from './Subtotal';
+import { useStateValue } from '../../StateProvider';
+import Subtotal from '../calculation/Subtotal';
 
 function Checkout(){
 
@@ -25,8 +23,6 @@ function Checkout(){
                             
                         )}
 
-                    
-                    
                 </div>
             
             </div>

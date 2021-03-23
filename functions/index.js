@@ -1,4 +1,4 @@
-const functions = require("firebase-functions");
+const functions = require('firebase-functions');
 
 //set up needed for backend express running on cloud functions
 const express = require("express");
@@ -17,21 +17,21 @@ const app = express();
 app.use(cors({ origin : true }));
 app.use(express.json());
 // -API routes
-app.get('/', (request,response) => response.status(200).send('hello world'))
+app.get("/", (request, response) => response.status(200).send('hello world'));
 
-app.post('/payments/create', async(request,response) => {
+app.post("/payments/create", async (request, response) => {
     const total = request.query.total;
-    console.log('Payement request received', total)
+    console.log("Payement request received", total);
 
     const paymentIntent = await stripe.paymentIntents.create({
         amount : total,
-        currency : "usd"
+        currency : "usd",
     });
     //OK - created and we are sending back the response (the paymentIntent)
     response.status(201).send({
         clientSecret : paymentIntent.client_secret,
-    })
-})
+    });
+});
 // -Listen command
 
 exports.api = functions.https.onRequest(app)
